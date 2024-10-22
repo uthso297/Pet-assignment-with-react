@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-const Pet = ({ p }) => {
+const Pet = ({ p , liked}) => {
     const { image, pet_name, breed, date_of_birth, gender, price } = p;
     return (
-        <div className="p-4 border-2 rounded-lg">
-            <div>
-                <img src={image} alt="" />
+        <div className="p-4 border-2 rounded-lg space-y-3">
+            <div className="">
+                <img className="w-full h-[140px]" src={image} alt="" />
             </div>
             <div>
                 <p className="font-bold text-xl">{pet_name}</p>
@@ -27,10 +27,10 @@ const Pet = ({ p }) => {
                 <p>Price: {price? `${price} $`:'Not available'}</p>
             </div>
             <hr />
-            <div>
-                <button></button>
-                <button>Adopt</button>
-                <button>Details</button>
+            <div className="space-x-1">
+                <button onClick={liked} className="border-2 rounded-lg px-2 py-2">Like</button>
+                <button className="border-2 rounded-lg px-2 py-2">Adopt</button>
+                <button className="border-2 rounded-lg px-2 py-2">Details</button>
             </div>
 
 
@@ -39,7 +39,8 @@ const Pet = ({ p }) => {
 };
 
 Pet.propTypes = {
-    p: PropTypes.object.isRequired
+    p: PropTypes.object.isRequired,
+    liked: PropTypes.func.isRequired
 }
 
 export default Pet;
