@@ -5,6 +5,7 @@ import Hero from './Components/Hero/Hero'
 import Categories from './Components/Main/CategoriesofPet/Categories/Categories'
 import TitleofMain from './Components/Main/mainHeader/titleofMain'
 import Sort from './Components/Main/SortingbyPrice/Sort'
+import Pets from './Components/Main/AllpetsandLikedPets/AllPets/Pets/Pets'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <TitleofMain></TitleofMain>
       <Categories categories={categories}></Categories>
       <Sort></Sort>
+      <Pets></Pets>
 
     </>
   )
