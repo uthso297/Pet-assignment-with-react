@@ -9,10 +9,10 @@ const Hero = () => {
                 <span className="text-2xl"><FaHeart /></span>
             </div>
             <div className="space-y-3">
-                <h1 className="text-5xl text-center">Your Path to Adopotion <br /> Starts Here</h1>
+                <h1 className="text-6xl text-center font-bold">Your Path to Adopotion <br /> Starts Here</h1>
                 <p className="text-center">Your journey to finding the perfect furry friend begins with us. Explore our resources and adopt a pet today!</p>
                 <div className="text-center">
-                    <button className="btn bg-[#127982] font-bold rounded-lg px-3 py-2">View More</button>
+                    <button className="bg-[#127982] font-bold rounded-lg px-3 py-2">View More</button>
                 </div>
             </div>
             <div>
