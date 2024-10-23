@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Pet = ({ p , liked}) => {
+const Pet = ({ p , handleLikedPet}) => {
     const { image, pet_name, breed, date_of_birth, gender, price } = p;
     return (
         <div className="p-4 border-2 rounded-lg space-y-3">
@@ -28,7 +28,7 @@ const Pet = ({ p , liked}) => {
             </div>
             <hr />
             <div className="space-x-1">
-                <button onClick={liked} className="border-2 rounded-lg px-2 py-2">Like</button>
+                <button onClick={()=>handleLikedPet(p)} className="border-2 rounded-lg px-2 py-2">Like</button>
                 <button className="border-2 rounded-lg px-2 py-2">Adopt</button>
                 <button className="border-2 rounded-lg px-2 py-2">Details</button>
             </div>
@@ -40,7 +40,7 @@ const Pet = ({ p , liked}) => {
 
 Pet.propTypes = {
     p: PropTypes.object.isRequired,
-    liked: PropTypes.func.isRequired
+    handleLikedPet: PropTypes.func.isRequired
 }
 
 export default Pet;

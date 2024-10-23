@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
 import Pet from "../Pet/Pet";
 import Likedpets from "../../LikedPets/Likedpets";
+import PropTypes from "prop-types";
+
 
 const Pets = () => {
 
     const [pets, setPets] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [liked,setLiked] = useState([]);
 
-    const liked = () =>{
-        console.log('liked');
+    const handleLikedPet = pet =>{
+        const newLiked = [...liked, pet]
+        setLiked(newLiked);
+        // console.log(newLiked);
     }
+   
 
     useEffect(() => {
         const fetchPets = async () => {
@@ -26,8 +32,6 @@ const Pets = () => {
         fetchPets();
     }, []);
 
-
-
     return (
         <div className="space-y-5 my-3 md:p-4 p-2">
             {loading ? (
@@ -38,18 +42,19 @@ const Pets = () => {
             ) : (
                 <>
                     <h1 className="text-center font-bold">Total pets: {pets.length}</h1>
-                    <div className="flex gap-3 bg-blue-300">
+                    <div className="flex gap-3">
                         <div className="grid grid-cols-4 w-2/3 gap-3">
-                            {pets.map(p => <Pet key={p.petId} p={p} liked={liked}></Pet>)}
+                            {pets.map(p => <Pet key={p.petId} p={p} handleLikedPet={handleLikedPet}></Pet>)}
                         </div>
 
-                        <div className="w-1/3 flex-col border-2 rounded-lg bg-red-400">
+                        {/* <div className="w-1/3 flex-col border-2 rounded-lg bg-red-400"> */}
 
-                            {
-                                <Likedpets></Likedpets>
-                            }
-
+                        <div className="w-1/3">
+                        <Likedpets liked={liked}></Likedpets>
                         </div>
+                            
+
+                        {/* </div> */}
                     </div>
                 </>
             )}
@@ -57,5 +62,9 @@ const Pets = () => {
     );
 
 };
+
+Pets.propTypes = {
+    handleLikedPet: PropTypes.func
+}
 
 export default Pets;
